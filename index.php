@@ -18,7 +18,7 @@
             <div class="main">
                 <h1 class="main__head">Список лабораторных работ:</h1>
                 <div class="main__link">
-                    <a href="./works/laba3.php" class="main__link__text"> - Лабораторной работе №3</a>
+                    <a href="./works/laba3.php" class="main__link__text"> - Лабораторная работа №3</a>
                 </div>
     
             </div>

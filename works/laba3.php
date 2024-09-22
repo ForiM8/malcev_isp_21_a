@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Мальцев Никита Олегович">
-    <meta naem="discription" content="Изучение php">
+    <meta name="discription" content="Изучение php">
     <meta name="keywords" content="php">
     <link rel="stylesheet" href="laba3.css">
     <title>Лабораторные работы</title>
