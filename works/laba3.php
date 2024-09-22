@@ -20,7 +20,7 @@
                 <h1 class="main__head">Вариант 12</h1>
                 
                 <h2 class="main__head__small">Задание 1:</h2>
-                <p class="main__text">Даны катеты прямоугвольного треугольника a и b. 
+                <p class="main__text">Даны катеты прямоугольного треугольника a и b. 
                     Найти его гипотенузу c и периметр P.</p>
                 <form method="POST" action="">
                     <input class="main__input__one" type="numeric" name="a" placeholder="Введите значение a" required />
