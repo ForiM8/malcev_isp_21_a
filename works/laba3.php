@@ -17,55 +17,40 @@
             </div>
 
             <div class="main">
-                <h1 class="main__head">Вариант 12</h1>
+                <h1 class="main__head">Вариант 11</h1>
                 
                 <h2 class="main__head__small">Задание 1:</h2>
-                <p class="main__text">Даны катеты прямоугольного треугольника a и b. 
-                    Найти его гипотенузу c и периметр P.</p>
-                <form method="POST" action="">
-                    <input class="main__input__one" type="numeric" name="a" placeholder="Введите значение a" required />
-                    <input class="main__input__one" type="numeric" name="b" placeholder="Введите значение b" required />
-                    <button class="main__button" name="one">Решить задачу</button>
-                </form>
+                <p class="main__text">Даны два ненулевых числа. Найти сумму, 
+                    разность, произведение и частное их модулей.</p>
 
                 <?php 
-                if (isset($_POST['one'])) {
-
-                    $a = htmlspecialchars($_POST["a"]);
-                    $b = htmlspecialchars($_POST["b"]);
-            
-                    if (is_numeric($a) && is_numeric($b)) {
-                        $c = sqrt($a**2 + $b**2);
-                        $P = $a + $b + $c;
-                        echo "<p class='main__text'>Гипотенуза: " .$c . "</p>";
-                        echo "<p class='main__text'>Периметр: " .$P. "</p>";
-                    } else {
-                        echo "<p class='main__text'>Введите числовые значения для a и b.</p>";
-                    }
-                }
+                    $a = -2;
+                    $b = 5;
+                    $summ = abs($a) + abs($b);
+                    $razn = abs($a) - abs($b);
+                    $proiz = abs($a) * abs($b);
+                    $chast = abs($a) / abs($b);
+                    echo "<p class='main__text'>Исходные данные: a = " .$a ."; b = " .$b."</p>";
+                    echo "<p class='main__text'> Модуль от числа ".$a." = ".abs($a)." от числа ".$b." = ".abs($b)."</p>";
+                    echo "<p class='main__text'>".abs($a)." + ".abs($b)." = ".$summ. "</p>";
+                    echo "<p class='main__text'>".abs($a)." - ".abs($b)." = ".$razn. "</p>";
+                    echo "<p class='main__text'>".abs($a)." * ".abs($b)." = ".$proiz. "</p>";
+                    echo "<p class='main__text'>".abs($a)." / ".abs($b)." = ".$chast. "</p>";
                 ?>
 
                 <h2 class="main__head__small">Задание 2:</h2>
-                <p class="main__text">Дано трехзначное число. Вывести число, полученное
-                     при прочтении исходного числа справа налево.</p>
-                <form method="POST" action="">
-                    <input class="main__input__two" type="text" name="number" placeholder="Введите трехзначное число" required />
-                    <button class="main__button" name="two">Решить задачу</button>
-                </form>
+                <p class="main__text">Дано трехзначное число. Найти сумму и произведение его цифр.</p>
                 <?php 
-                if (isset($_POST['two'])) {
-
-                    $number = htmlspecialchars($_POST["number"]);
-                    if (is_numeric($number)) {
-                        if (strlen(strval($number))==3) {
-                            echo "<p class='main__text'>Ответ: " .strrev($number). "</p>";
-                        } else {
-                            echo "<p class='main__text'>Введите трехзначное число</p>";
-                        }
-                    } else {
-                        echo "<p class='main__text'>Введите числовые значения.</p>";
-                    }
-                }
+                    $number = 536;
+                    $edinici = $number % 10;
+                    $decytki = $number % 100;
+                    $decytki = intdiv($decytki, 10);
+                    $sotni = intdiv($number, 100);
+                    $summ = $edinici + $decytki + $sotni;
+                    $proizv = $edinici * $decytki * $sotni;
+                    echo "<p class='main__text'>Исходное число - ".$number."</p>";
+                    echo "<p class='main__text'>".$sotni."+".$decytki."+".$edinici."=".$summ."</p>";
+                    echo "<p class='main__text'>".$sotni."*".$decytki."*".$edinici."=".$proizv."</p>";
                 ?>
             </div>
 
