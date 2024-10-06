@@ -41,7 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap:nowrap;
-
+    margin-bottom: 25px;
 }
 
 .main__head{
