@@ -42,7 +42,7 @@
                 $number1_c = $_POST["number1_b"];
 
                 if (is_numeric($number1_a) && is_numeric($number1_b) && is_numeric($number1_c)) {
-                    if ($number1_a && $number1_b && $number1_c > 0) {
+                    if ($number1_a > 0 && $number1_b > 0 && $number1_c > 0) {
                         echo "<p class='main__text'>TRUE</p>";
                     } else {
                         echo "<p class='main__text'>FALSE</p>";
@@ -105,7 +105,7 @@
                     } elseif ($number3_x <= -2) {
                         $number3_y = cos(0.7 * $number3_x ** 2) + 0.5 * $number3_x;
                     } elseif ($number3_x > 0) {
-                        $number3_y = sqrt(1 + (exp($number3_x)) ** (2.1 * $number3_x));
+                        $number3_y = sqrt(1 + (2.72**(2.1*$number3_x)));
                     }
 
                 } else {
@@ -134,22 +134,23 @@
 
                     switch ($number4_x) {
                         case 0:
-                            $number4_x = 1 / (1 + 2.1 * abs($number4_x));
+                            $number4_y = 1 / (1 + 2.1 * abs($number4_x));
+                            echo "<p class='main__text'>" . "y = " . $number4_y, "</p>";
                             break;
                         case -2:
-                            $number4_x = cos(0.7 * $number4_x ** 2) + 0.5 * $number4_x;
+                            $number4_y = cos(0.7 * $number4_x ** 2) + 0.5 * $number4_x;
+                            echo "<p class='main__text'>" . "y = " . $number4_y, "</p>";
                             break;
                         case 1:
-                            $number4_x = sqrt(1 + (exp($number4_x)) ** (2.1 * $number4_x));
+                            $number4_y = sqrt(1 + (exp($number4_x)) ** (2.1 * $number4_x));
+                            echo "<p class='main__text'>" . "y = " . $number4_y, "</p>";
                             break;
                         default:
                             echo "x не равно 0, -2 или 1";
                     }
-
                 } else {
                     echo "<p class='main__text'>Введите числовое значение</p>";
                 }
-                echo "<p class='main__text'>" . "y = " . $number4_x, "</p>";
             }
             ?>
         </div>
