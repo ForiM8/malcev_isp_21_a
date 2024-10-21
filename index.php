@@ -25,6 +25,9 @@
             <div class="main__link">
                 <a href="./works/laba4.php" class="main__link__text"> - Лабораторная работа №4</a>
             </div>
+            <div class="main__link">
+                <a href="./works/laba5.php" class="main__link__text"> - Лабораторная работа №5</a>
+            </div>
 
         </div>
 
