@@ -7,7 +7,7 @@
     <meta name="author" content="Мальцев Никита Олегович">
     <meta name="discription" content="Изучение php">
     <meta name="keywords" content="php">
-    <link rel="stylesheet" href="./laba5.css">
+    <link rel="stylesheet" href="./laba6.css">
     <title>Лабораторные работы</title>
 </head>
 
@@ -15,7 +15,7 @@
     <div class="container">
         <div class="header">
             <p class="header__text">Лабораторная работа №6</p>
-            <a href="../index.php" class="header__link"> На главную</a>
+            <a href="../../index.php" class="header__link"> На главную</a>
         </div>
 
         <div class="main">

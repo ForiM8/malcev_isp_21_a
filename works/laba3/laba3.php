@@ -15,7 +15,7 @@
     <div class="container">
         <div class="header">
             <p class="header__text">Лабораторная работа №3</p>
-            <a href="../index.php" class="header__link"> На главную</a>
+            <a href="../../index.php" class="header__link"> На главную</a>
         </div>
 
         <div class="main">
