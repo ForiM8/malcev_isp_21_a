@@ -13,12 +13,12 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <p class="header__text">Лабораторная работа №6</p>
-            <a href="../../index.php" class="header__link"> На главную</a>
-        </div>
+        <?php
+        include("../../components/header/header.php");
+        ?>
 
         <div class="main">
+            <a href="../../index.php" class="header__link"> На главную</a>
             <h1 class="main__head">Вариант 12</h1>
 
             <form method="POST" action="">
@@ -73,8 +73,8 @@
                     if ((strlen($number2_a) % 2) == 0) {
                         for ($i = 0; $i < strlen($number2_a) / 2; $i++) {
                             $t = $number2_a[$i];
-                            $number2_a[$i] = $number2_a[strlen($number2_a)/2 + $i];
-                            $number2_a[strlen($number2_a)/2+$i]=$t;
+                            $number2_a[$i] = $number2_a[strlen($number2_a) / 2 + $i];
+                            $number2_a[strlen($number2_a) / 2 + $i] = $t;
                         }
                     } else {
                         echo "<p class='main__text'>Массив должен быть четным</p>";
@@ -82,16 +82,13 @@
                 } else {
                     echo "<p class='main__text'>Введите числовое значение</p>";
                 }
-                echo "<p class='main__text'>".$number2_a."</p>";
+                echo "<p class='main__text'>" . $number2_a . "</p>";
             }
             ?>
 
-
+            <?php
+            include("../../components/footer/footer.php");
+            ?>
         </div>
-
-        <div class="footer">
-            <p class="footer__text">Проверил: С. В. Умбетов</p>
-        </div>
-    </div>
 
 </body>

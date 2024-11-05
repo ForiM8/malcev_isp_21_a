@@ -13,12 +13,12 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <p class="header__text">Лабораторная работа №3</p>
-            <a href="../../index.php" class="header__link"> На главную</a>
-        </div>
+        <?php
+        include("../../components/header/header.php");
+        ?>
 
         <div class="main">
+            <a href="../../index.php" class="header__link"> На главную</a>
             <h1 class="main__head">Вариант 11</h1>
 
             <h2 class="main__head__small">Задание 1:</h2>
@@ -56,9 +56,9 @@
             ?>
         </div>
 
-        <div class="footer">
-            <p class="footer__text">Проверил: С. В. Умбетов</p>
-        </div>
+        <?php
+        include("../../components/footer/footer.php");
+        ?>
     </div>
 
 </body>

@@ -13,12 +13,12 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <p class="header__text">Лабораторная работа №5</p>
-            <a href="../../index.php" class="header__link"> На главную</a>
-        </div>
+        <?php
+        include("../../components/header/header.php");
+        ?>
 
         <div class="main">
+            <a href="../../index.php" class="header__link"> На главную</a>
             <h1 class="main__head">Вариант 12</h1>
 
             <form method="POST" action="">
@@ -31,7 +31,7 @@
 
                 <button class="main__button" name="one">Решить задачу</button>
             </form>
-            
+
 
             <?php
             if (isset($_POST['one'])) {
@@ -77,25 +77,26 @@
                     $str_nuber2 = str_split($number2_a);
                     if ($number2_a > 0) {
                         for ($i = 0; $i < count($str_nuber2); $i++) {
-                            $number2_a_proizv = $number2_a_proizv * $str_nuber2[$i]; 
+                            $number2_a_proizv = $number2_a_proizv * $str_nuber2[$i];
                         }
-                    }else{
+                    } else {
                         echo "<p class='main__text'>Введите число больше нуля</p>";
 
                     }
 
                 } else {
                     echo "<p class='main__text'>Введите числовое значение</p>";
-                }echo "<p class='main__text'>".$number2_a_proizv."</p>";
+                }
+                echo "<p class='main__text'>" . $number2_a_proizv . "</p>";
             }
             ?>
 
 
         </div>
 
-        <div class="footer">
-            <p class="footer__text">Проверил: С. В. Умбетов</p>
-        </div>
+        <?php
+        include("../../components/footer/footer.php");
+        ?>
     </div>
 
 </body>

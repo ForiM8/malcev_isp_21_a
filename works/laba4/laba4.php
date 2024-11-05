@@ -13,12 +13,12 @@
 
 <body>
     <div class="container">
-        <div class="header">
-            <p class="header__text">Лабораторная работа №4</p>
-            <a href="../../index.php" class="header__link"> На главную</a>
-        </div>
+        <?php
+        include("../../components/header/header.php");
+        ?>
 
         <div class="main">
+            <a href="../../index.php" class="header__link"> На главную</a>
             <h1 class="main__head">Вариант 12</h1>
 
             <form method="POST" action="">
@@ -105,7 +105,7 @@
                     } elseif ($number3_x <= -2) {
                         $number3_y = cos(0.7 * $number3_x ** 2) + 0.5 * $number3_x;
                     } elseif ($number3_x > 0) {
-                        $number3_y = sqrt(1 + (2.72**(2.1*$number3_x)));
+                        $number3_y = sqrt(1 + (2.72 ** (2.1 * $number3_x)));
                     }
 
                 } else {
@@ -155,9 +155,9 @@
             ?>
         </div>
 
-        <div class="footer">
-            <p class="footer__text">Проверил: С. В. Умбетов</p>
-        </div>
+        <?php
+        include("../../components/footer/footer.php");
+        ?>
     </div>
 
 </body>
