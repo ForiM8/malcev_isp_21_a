@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    position: absolute;
+    background-color: #3e87f0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main__container{
+        max-width: 380px;
+        width: 100%;
+        max-height: 902px;
+        height:100%;
+        background-color: aquamarine;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .main__container__header{
+            background-color: bisque;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-content: space-between;
+        }
+
+        .main__container__image{
+            width: 300px;
+            height: 250px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            background-color: bisque;
+        }
+
+        .main__container__question{
+            width: 100%;
+            height: auto;
+            background-color: bisque;
+            margin-bottom: 40px;
+
+            .main__container__question-countQuestion{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 20px;
+                font-weight: 400;
+            }
+
+            .main__container__question-question{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 40px;
+                font-weight: 400;
+            }
+        }
+
+        .main__cintainer__button{
+            width: 100%;
+            height: 260px;
+            background-color: bisque;
+
+            .main__cintainer__button-question{
+                width: 100%;
+                height: 58px;
+                background-color: blue;
+                margin-top: 20px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+    }
+}
