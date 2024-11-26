@@ -66,7 +66,7 @@ if (isset($result)) {
                     echo'</div>';
                 
                     echo'<div class="main__cintainer__button">';
-                        if($row["answer"] == 0) echo'<div class="main__cintainer__button-question">'. $row["question_1"] .'</div>';
+                        if($row["is_del"] == 0) echo'<div class="main__cintainer__button-question">'. $row["question_1"] .'</div>';
                         if($row["answer"] == 0) echo'<div class="main__cintainer__button-question">'. $row["question_2"] .'</div>';
                         if($row["answer"] == 0)echo'<div class="main__cintainer__button-question">'. $row["question_2"] .'</div>';
                     echo'</div>';

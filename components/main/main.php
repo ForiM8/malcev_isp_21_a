@@ -13,5 +13,11 @@
     <div class="main__link">
         <a href="./works/laba6/laba6.php" class="main__link__text"> - Лабораторная работа №6</a>
     </div>
+    <div class="main__link">
+        <a href="./works/laba7/laba7.php" class="main__link__text"> - Лабораторная работа №7</a>
+    </div>
+    <div class="main__link">
+        <a href="./works/quiz/quizPages/quesOne/quesOne.php" class="main__link__text"> - Квиз</a>
+    </div>
 
 </div>

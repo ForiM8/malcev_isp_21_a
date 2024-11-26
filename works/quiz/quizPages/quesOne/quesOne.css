@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.main{
+    position: absolute;
+    background-color: #006aff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main__container{
+        max-width: 600px;
+        width: 100%;
+        max-height: 902px;
+        height:100%;
+        background-color: #3e87f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 10px 20px 10px 20px;
+
+        .main__container__header{
+            position: relative;
+            margin-bottom: auto;
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            justify-content: space-between;
+            
+            .main__container__header-item{
+                width:auto;
+                height:auto;
+            }
+
+            .main__container__header-exit{
+                position: relative;
+                background-image: url("../../../../public/svg/multiple.svg");
+                background-size: cover;
+                width: 35px;
+                height: 35px;
+            }
+
+            .main__container__header-score{
+                width: 60px;
+                height: 35px;
+                box-sizing: border-box;
+                padding: 12px;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                color: #fff;
+                justify-content: space-between;
+                border: 1px solid white;
+                font-family: "Roboto", sans-serif;
+                font-size: 15px;
+            }
+        }
+
+        .main__container__image{
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            max-height: 303px;
+            margin-top: auto;
+            margin-bottom: auto;
+            border-radius: 13px;
+            border: 2px solid #006aff;
+           
+        }
+
+        .main__container__question{
+            width: 100%;
+            height: auto;
+            
+            margin-bottom: auto;
+            margin-top: auto;
+
+            .main__container__question-countQuestion{
+                font-family: "Roboto", sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+                color: #fff;
+            }
+
+            .main__container__question-question{
+                font-family: "Roboto", sans-serif;
+                font-size: 27px;
+                color: #fff;
+                font-weight: 400;
+                
+            }
+        }
+
+        .main__container__answers{
+            width: 100%;
+            height: auto;
+            margin: auto;
+          
+
+            .main__container__button-question{
+                width: 100%;
+                height: auto;
+                min-height: 58px;
+                background-color: #fff;
+                margin-bottom: 15px;
+                border-radius: 12px;
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: .3s;
+                font-family: "Roboto", sans-serif;
+                font-size: 20px;
+                font-weight: 700;
+                color: #3e87f0;
+            }.main__container__button-question:last-child{
+                margin-bottom: 0px;
+            }
+            .main__container__button-question:hover{
+                background-color: #bebcbc;
+            }
+        }
+        
+    }
+}
+
+#countdown {
+  position: relative;
+    margin: auto;
+    margin-top: 7px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+#countdown-number {
+  color: white;
+  display: inline-block;
+  line-height: 40px;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  stroke: white;
+  fill: none;
+  animation: countdown 30s linear infinite forwards;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
