@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Соединение с базой данных
 $conn = new mysqli("localhost", "toprs1ew_bd", "Qw123456Qw!", "toprs1ew_bd");
 if ($conn->connect_error) {
     die("Ошибка подключения: " . $conn->connect_error);
@@ -12,8 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $score = 0; 
     $create_at = date('Y-m-d H:i:s');
     $update_at = $create_at;
-
-    // Проверка на существование пользователя
     $check_sql = "SELECT COUNT(*) FROM users WHERE name = '$name'";
     $result = $conn->query($check_sql);
     $count = $result->fetch_row()[0];
@@ -21,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($count > 0) {
         echo "Пользователь с таким именем уже существует. Пожалуйста, выберите другое имя.";
     } else {
-        // Вставка нового пользователя
         $sql = "INSERT INTO users (name, score, create_at, update_at) 
                 VALUES ('$name', $score, '$create_at', '$update_at')";
         
