@@ -2,17 +2,13 @@
 session_start();
 
 // Проверка сессии
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+
+$score = $_SESSION['$score'];
+$username = $_SESSION['name'];
 
 $user_id = $_SESSION['user_id'];
-$username = $_SESSION['name'];
-// URL вашего API
-$api_url = "http://toprs1rp.beget.tech"; // Замените на ваш фактический URL API
+$api_url = "http://toprs1rp.beget.tech"; 
 
-// Функция для выполнения GET-запроса к API
 function makeApiRequest($url) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -28,47 +24,90 @@ function makeApiRequest($url) {
 
     return json_decode($response, true);
 }
+function makePatchRequest($url, $data) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PATCH');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+    ));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    $response = curl_exec($ch);
+    if (curl_errno($ch)) {
+        echo 'Ошибка cURL: ' . curl_error($ch);
+    }
+    curl_close($ch);
+
+    return json_decode($response, true);
+}
 
 
-$id =  1;
+$id =  $_SESSION['$id'];
 
 
-$question_url = "$api_url/index.php?q=posts/allQues/$id";  // API для получения вопроса по ID
+$question_url = "$api_url/index.php?q=posts/allQues/$id";
 $question = makeApiRequest($question_url);
 
-// Вывод ответа API для отладки
 
 if ($question) {
     $correct_answer = $question['answer'];
-    $score = 0;
-
-        // Обработка ответа пользователя
+    
         if (isset($_GET['answer'])) {
             $user_answer = intval($_GET['answer']);
 
-
-            // Если ответ правильный, увеличиваем очки
             if ($user_answer == $correct_answer) {
                 $new_score = $score + 1;
-               
+                
             }
 
-            // Переход к следующему вопросу или к таблице с результатами
             $next_id = $id + 1;
             if ($next_id == 11) {
+                $_SESSION['$score']=$new_score;
+                    $_SESSION['$id'] = $next_id; 
+                    $update_score_url = "$api_url/index.php?q=posts/pathUser/$user_id";
+                    $update_data = array(
+                    
+                    'score' => $new_score,
+                    );
+
+                    $response = makePatchRequest($update_score_url, $update_data);
                 $_SESSION['name'] = $username;
                 header("Location: ../tableScore/tableScore.php");
                 exit();
             } else {
+                
+                if ($user_answer == $correct_answer) {
+                    $_SESSION['$score']=$new_score;
+                    $_SESSION['$id'] = $next_id; 
+                    $update_score_url = "$api_url/index.php?q=posts/pathUser/$user_id"; 
+                    $update_data = array(
+                    
+                    'score' => $new_score,
+                    );
+
+                    $response = makePatchRequest($update_score_url, $update_data);
+                
+                }else{
+                    $score = $_SESSION['$score'];
+
+                    $_SESSION['$score'] = $score;
+                    $_SESSION['$id'] = $next_id;
+                    
+                    $update_score_url = "$api_url/index.php?q=posts/pathUser/$user_id"; 
+                    $update_data = array(
+        
+                    'score' => $score,
+                    );
+
+                    $response = makePatchRequest($update_score_url, $update_data);
+                }
                 $_SESSION['name'] = $username;
-                 $_SESSION['$score'] = $new_score;
-                 $_SESSION['$id'] = $next_id;
                 header("Location: quesTwo.php");
                 exit();
             }
         }
 
-        // Отображение страницы с вопросом
         echo '
         <!DOCTYPE html>
         <html lang="ru">
@@ -82,7 +121,7 @@ if ($question) {
             <div class="main">
                 <div class="main__container">
                     <div class="main__container__header">
-                        <a href="../../../index.php" class="main__container__header-exit"></a>
+                        <a href="../../../../index.php" class="main__container__header-exit"></a>
                         <div class="main__container__header-item">
                             <div id="countdown">
                                 <div id="countdown-number"></div>

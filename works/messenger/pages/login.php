@@ -2,19 +2,37 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
+    $user = $_POST['user'];
     $score = 0;
+    function get_ip_list()
+    {
+	$list = array();
+	if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+		$ip = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+		$list = array_merge($list, $ip);
+	} elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+		$ip = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+		$list = array_merge($list, $ip);
+	} elseif (!empty($_SERVER['REMOTE_ADDR'])) {
+		$list[] = $_SERVER['REMOTE_ADDR'];
+	}
+	
+	$list = array_unique($list);
+	return implode(',', $list);
+    }
+    $ip_address = get_ip_list();
     $create_at = date('Y-m-d H:i:s');
     $update_at = $create_at;
 
     $data = [
-        'name' => $name,
-        'score' => $score,
+        'user' => $user,
+        'text' => $text,
+        'ip_address' => $ip_address,
         'create_at' => $create_at,
         'update_at' => $update_at
     ];
 
-    $url = 'http://toprs1rp.beget.tech/posts/addUser';
+    $url = 'http://toprs1rp.beget.tech/api/messages/add';
 
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -37,16 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $responseData = json_decode($response, true);
 
     if (isset($responseData['user_id'])) {
-        $_SESSION['name'] = $name;
+        $_SESSION['user'] = $user;
         $_SESSION['user_id'] = $responseData['user_id'];
-        header("Location: ../quesOne/quesOne.php");
+        $_SESSION['ip_address'] = get_ip_list();
+        header("Location: people.php");
         exit;
     } else {
         echo 'Ошибка при добавлении пользователя';
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -64,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="" method="POST">
                 <div class="main__container__login">
                     <div class="main__container__login-name">Регистрация</div>
-                    <input class="main__container__login-input" type="text" name="name" placeholder="Введите свое имя" required>
+                    <input class="main__container__login-input" type="text" name="user" placeholder="Введите свое имя" required>
                     <button class="main__container__login-button" type="submit">Продолжить</button>
                 </div>
             </form>
